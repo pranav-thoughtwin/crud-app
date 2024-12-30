@@ -82,7 +82,7 @@ export default function CustomCard() {
             newErrors.nameError = "Please enter valid name";
         }
         if (!name) {
-            newErrors.nameError = "Please enter name";
+            newErrors.nameError = "Please enter name"; 
         }
         const validEmail = /\S+@\S+\.\S+/.test(email);
         if(!validEmail){
