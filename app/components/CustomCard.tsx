@@ -67,6 +67,7 @@ export default function CustomCard() {
     const handleCancel = () => {
         dispatch(setisEditing(false));
         resetEditData();
+        router.push("/");
     }
 
     const reset = () => {
@@ -154,7 +155,7 @@ export default function CustomCard() {
                         </div>
                     </div>
                 </div>
-                <div onClick={handleCancel}><Link href="/">Go back to home page</Link></div>
+                <div onClick={handleCancel}>Go back to home page</div>
             </div>
         </div>
     )
