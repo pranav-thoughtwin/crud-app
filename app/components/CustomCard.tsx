@@ -77,19 +77,25 @@ export default function CustomCard() {
 
     const validate = (): boolean => {
         const newErrors: ErrorsObj = {};
+        const validName = /^\S*$/.test(name);
+        if(!validName){
+            newErrors.nameError = "Please enter valid name";
+        }
         if (!name) {
             newErrors.nameError = "Please enter name";
         }
+        const validEmail = /\S+@\S+\.\S+/.test(email);
+        if(!validEmail){
+            newErrors.emailError = "Please enter vaild email"
+        }
         if (!email) {
             newErrors.emailError = "Please enter email"
-
         }
         if (!password) {
             newErrors.passwordError = "Please enter password"
-
         }
         setErrors(newErrors);
-        if (!name || !email || !password) {
+        if (!name || !email || !password || !validEmail || !validName) {
             return false;
         }
         reset();
