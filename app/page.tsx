@@ -25,8 +25,6 @@ export default function Home() {
       <div className="mt-8">
         <CustomTable />
       </div>
-      <button onClick={handleClick}>Test button</button>
-
     </div>
   );
 }
