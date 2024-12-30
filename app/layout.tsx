@@ -1,14 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { Provider } from "react-redux";
-import store from "./redux/store";
 import ProviderWrapper from "./components/ProviderWrapper"
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
-import { Roboto } from 'next/font/google';
-import { ThemeProvider } from '@mui/material/styles';
-import theme from "@/theme";
-
+import ThemeProviderWrapper from "./components/ThemeProviderWrapper";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -35,15 +30,13 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {/* <AppRouterCacheProvider>
-        <ThemeProvider theme={theme}> */}
-
+        <AppRouterCacheProvider>
           <ProviderWrapper>
-            {children}
+            <ThemeProviderWrapper>
+              {children}
+            </ThemeProviderWrapper>
           </ProviderWrapper>
-
-        {/* </ThemeProvider>
-        </AppRouterCacheProvider> */}
+        </AppRouterCacheProvider>
       </body>
     </html>
   );

@@ -27,6 +27,27 @@ export default function CustomTable() {
         router.push("/inputForm")
     }
 
+    const columns = [
+        {
+            field: 'name',
+            headerName: 'Name',
+            width: 150,
+            editable: true,
+        },
+        {
+            field: 'email',
+            headerName: 'Email',
+            width: 150,
+            editable: true,
+        },
+        {
+            field: 'password',
+            headerName: 'Password',
+            width: 150,
+            editable: true,
+        },
+    ]
+
     return (
         <div>
             <div className="mx-auto w-fit mt-16">
@@ -64,9 +85,9 @@ export default function CustomTable() {
                 </table>
                 <CustomButton className="-mx-1" name={"Add data"} onClick={() => router.push("/inputForm")} />
                 {/* <DataGrid
-                    rows={rows}
+                    rows={details}
                     columns={columns}
-                    initialState={{ pagination: { paginationModel } }}
+                    // initialState={{ pagination: { paginationModel } }}
                     pageSizeOptions={[5, 10]}
                     checkboxSelection
                     sx={{ border: 0 }}

@@ -2,21 +2,20 @@
 import CustomTable from "./components/CustomTable";
 import { toast, ToastContainer } from "react-toastify";
 import { useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "./redux/store";
-import { useRouter } from "next/navigation";
+import { setShowToast } from "./redux/slices/detailsSlice";
 
 export default function Home() {
+  const dispatch = useDispatch();
   const showToast = useSelector((state: RootState) => state.details.showToast);
   const toastMessage = useSelector((state: RootState) => state.details.toastMessage);
   useEffect(() => {
-    { showToast && toast(toastMessage); }
+    if (showToast) {
+      toast(toastMessage);
+      dispatch(setShowToast(false));
+    }
   }, [showToast])
-  const router = useRouter();
-  const handleClick = () => {
-    console.log("clicked")
-    router.push("/inputForm")
-  }
 
   return (
 
